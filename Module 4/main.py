@@ -1,9 +1,17 @@
-# Module 4 - Portfolio Milestone - Charles Henrikson
-import ItemToPurchase
+
+class ItemToPurchase:
+    def __init__(self, item_name='none', item_price=0.00, item_quantity=0):
+        self.item_name = item_name
+        self.item_price = item_price
+        self.item_quantity = item_quantity
+
+    def print_item_cost(self):
+        total = self.item_quantity * self.item_price
+        print('{name} {quantity} @ ${price:.2f} = ${total:.2f}'.format(name=self.item_name, quantity=self.item_quantity, price=self.item_price, total=total))
 
 cart = []
 
-print("Please enter two shopping cart item's names, prices and quantities:\n")
+print("Please enter two shopping cart item's names, prices, and quantities:\n")
 
 # Capture the items
 for item in range(1, 3):
@@ -11,7 +19,7 @@ for item in range(1, 3):
     i_name = input("Enter the item name:")
     i_price = float(input("Enter the item price:"))
     i_quantity = int(input("Enter the item quantity:"))
-    cart.append(ItemToPurchase.Item(i_name, i_price, i_quantity))
+    cart.append(ItemToPurchase(i_name, i_price, i_quantity))
 
 # Calculate total for cart
 total = 0.00
